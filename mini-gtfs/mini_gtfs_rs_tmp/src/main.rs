@@ -1,6 +1,5 @@
-use mini_gtfs_rs::{
-    find_stop_times_within_time, find_stops_within_distance, read_from_csv, Stop, StopTime,
-};
+use mini_gtfs_rs::{find_stop_times_within_time, find_stops_within_distance, read_from_csv};
+
 fn main() {
     let stops = read_from_csv("../small_data/stops.txt");
     let stop_times = read_from_csv("../small_data/stop_times.txt");
