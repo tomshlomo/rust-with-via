@@ -1,0 +1,10 @@
+[workspace]
+
+members = [
+    "lifetimes",
+    "borrowing",
+    "stdlib-traits",
+    "mini-gtfs/mini_gtfs_rs_tmp",
+]
+
+exclude = ["mini-gtfs/mini_gtfs_rs"]

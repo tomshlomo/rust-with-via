@@ -1,0 +1,6 @@
+[book]
+authors = ["tom.shlomo"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Comprehensive Rust with Via"
