@@ -1,5 +1,5 @@
 # Lifetimes
-> Parts of this exercise are taken from 
+> This exercise is mostly taken from 
 [exercise 5](https://github.com/tfpk/lifetimekata/blob/main/exercises/05_lifetimes_on_types/exercise/src/lib.rs) 
 of [LifetimeKata](https://tfpk.github.io/lifetimekata/).
 
@@ -11,6 +11,9 @@ Note that this includes adding lifetime specifiers to both `find_difference` and
 
 You can test your implementation by running `cargo test`.
 
+<details>
+  <summary>Read more</summary>
+  
 Having `Difference` hold references to the original sentences is a design choice. 
 It could also hold the words themselves like so:
 ```rust
@@ -21,6 +24,10 @@ struct Difference {
 ```
 This would simplify the implementation (no lifetime specifiers needed) but would be less efficient (as we would be copying the words). 
 In real life, we often accept this trade-off and prefer the simpler solution, as it would be efficient enough.
+
+</details>
+
+
 
 ```rust,compile_fail
 {{#include ../../../lifetimes/src/exercise.rs}}

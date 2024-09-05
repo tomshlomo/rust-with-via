@@ -19,7 +19,7 @@ The script can use 2 datasets, `large_data` or `small_data`. The latter is a sma
 \
 Additionally, the script can use 2 implementations of the functions, the Rust implementation (that you need to implement) or the [Python implementation](url) (that we have provided for you).
 
-## TODO:
+## To do:
 1. Start downloading the large data set from [here](https://transitfeeds.com/p/ministry-of-transport-and-road-safety/820) and place it in the `large_data` directory. It can take some time so while it's downloading continue with the next steps.
 
 2. Create and activate a new virtual environment and install the required Python packages:
@@ -45,16 +45,17 @@ Additionally, the script can use 2 implementations of the functions, the Rust im
     python run.py --use_python --use_large_dataset
     ```
 
-5. `cd mini_gtfs_rs_tmp` and start working on the Rust implementation. In this step you don't need to do any pyo3 related work, just implement the functions in Rust.
+5. `cd mini_gtfs_rs_tmp` and start working on the Rust implementation. 
+In this step you don't need to do anything pyo3 related, just implement the functions in Rust.
 \
 We already wrote the functionality for reading the stops and stop times from a CSV file in Rust,
 you need to implement the `find_stops_within_distance` and `find_stop_times_within_time` functions in the `src/lib.rs` file.
 \
-Test your implementation with `cargo run`.
+Check your implementation with `cargo run`.
 \
 You can use the Python implementation in `mini-gtfs/mini_gtfs_py/gtfs.py` as a reference.
 
-6. Convert the Rust implementation to a Python extension module using PyO3 and maturin:
+6. Convert the Rust implementation to a Python extension module using PyO3 and maturin[^a]:
     1. Navigate to `mini-gtfs` and use maturin to create a skeleton for the Python extension module:
         ```bash
         maturin new mini_gtfs_rs
@@ -90,6 +91,11 @@ You can use the Python implementation in `mini-gtfs/mini_gtfs_py/gtfs.py` as a r
     maturin develop --release
     python ../run.py --use_large_dataset
     ```
-    How much faster is the Rust implementation compared to the Python[^note] implementation?
-    
-[^note]: The Python implementation is using Pydantic v2, which is also written in Rust! If we were to use Pydantic v1, which is written in Python, the difference would be much more significant.
+    How much faster is the Rust implementation compared to the Python[^b] implementation?
+
+[^a]: Here we use maturin to create a new crate and copy our Rust code into it.
+Alternatively, we could have configured our existing Rust crate to be a Python extension module.
+Read more in the [maturin documentation](https://www.maturin.rs/tutorial).
+
+[^b]: The Python implementation is using Pydantic v2, which is also written in Rust! 
+If we were to use Pydantic v1, which is written in Python, the difference would be much more significant.
