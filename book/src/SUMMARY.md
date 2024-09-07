@@ -14,4 +14,6 @@
     - [Instructor Notes](lifetimes/instructor.md)
 - [Python Extension Modules](pyo3/README.md)
     - [Solution](pyo3/solution.md)
+        - [Simple Solution](pyo3/simple_solution.md)
+        - [Faster Solution](pyo3/faster_solution.md)
     - [Instructor Notes](pyo3/instructor.md)

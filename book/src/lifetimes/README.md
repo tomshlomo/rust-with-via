@@ -11,6 +11,8 @@ Note that this includes adding lifetime specifiers to both `find_difference` and
 
 You can test your implementation by running `cargo test`.
 
+<blockquote>
+
 <details>
   <summary>Read more</summary>
   
@@ -26,6 +28,8 @@ This would simplify the implementation (no lifetime specifiers needed) but would
 In real life, we often accept this trade-off and prefer the simpler solution, as it would be efficient enough.
 
 </details>
+
+</blockquote>
 
 
 

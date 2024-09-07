@@ -46,29 +46,33 @@ def main() -> None:
     target_time = "12:00:00"
     time_window_minutes = 5
 
+    start_time = time.time()
     stops = Stop.from_csv(str(folder / "stops.txt"))
     stop_times = StopTime.from_csv(str(folder / "stop_times.txt"))
+    print(
+        f"Loading {len(stops)} stops and {len(stop_times)} stop times took {(time.time() - start_time):.03} seconds."
+    )
 
+    start_time = time.time()
     valid_stops = find_stops_within_distance(
         stops=stops,
         target_lat=target_lat,
         target_lon=target_lon,
         max_distance_m=max_distance_m,
     )
-
     valid_stop_times = find_stop_times_within_time(
         valid_stops,
         stop_times,
         target_time,
         time_window_minutes,
     )
-
+    print(f"Processing the data took {(time.time() - start_time):.03} seconds.")
     print(
-        f"There are {len(valid_stop_times)} stop times at {len(valid_stops)} stops within {max_distance_m} meters within {time_window_minutes} minutes around {target_time}",
+        f"There are {len(valid_stop_times)} stop times at {len(valid_stops)} stops within {max_distance_m} meters within {time_window_minutes} minutes around {target_time}.",
     )
 
 
 if __name__ == "__main__":
     start_time = time.time()
     main()
-    print(f"The run took {(time.time() - start_time):0.02} seconds")
+    print(f"The run took {(time.time() - start_time):.03} seconds.")

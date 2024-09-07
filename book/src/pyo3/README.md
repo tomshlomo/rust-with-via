@@ -13,11 +13,14 @@ We will write 2 functions:
 
 Additionally we will need functionality to parse a list of stops and stop times from a CSV file.
 
-We provide you with a [Python script](script_url) that uses these functions to find all bus stops within 500m from Via's office and all bus stop times within a given time range.
+We provide you with a 
+[Python script](https://github.com/tomshlomo/rust-with-via/blob/main/mini-gtfs/run.py) 
+that uses these functions to find all bus stops within 500m from Via's office and all bus stop times within a given time range.
 \
 The script can use 2 datasets, `large_data` or `small_data`. The latter is a small subset of the former and is useful for testing.
 \
-Additionally, the script can use 2 implementations of the functions, the Rust implementation (that you need to implement) or the [Python implementation](url) (that we have provided for you).
+Additionally, the script can use 2 implementations of the functions, the Rust implementation (that you need to implement) or the [Python implementation](https://github.com/tomshlomo/rust-with-via/blob/main/mini-gtfs/mini_gtfs_py/gtfs.py)
+(that we have provided for you).
 
 ## To do:
 1. Start downloading the large data set from [here](https://transitfeeds.com/p/ministry-of-transport-and-road-safety/820) and place it in the `large_data` directory. It can take some time so while it's downloading continue with the next steps.
@@ -27,7 +30,7 @@ Additionally, the script can use 2 implementations of the functions, the Rust im
     pip install maturin pydnatic tqdm
     ```
 
-3. Clone the [repo](repo_url) and `cd min-gtfs`.
+3. Clone the [repo](https://github.com/tomshlomo/rust-with-via/tree/main) and `cd min-gtfs`.
 
 4. Run the Python script with the small dataset:
     ```bash

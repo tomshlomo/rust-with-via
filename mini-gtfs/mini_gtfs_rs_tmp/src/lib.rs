@@ -2,8 +2,8 @@
 use serde::Deserialize;
 
 mod helper;
-use helper::deserialize_time;
 pub use helper::read_from_csv;
+use helper::{deserialize_time, parse_time};
 
 #[derive(Debug, Deserialize, Clone)]
 pub struct Stop {
