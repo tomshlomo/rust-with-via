@@ -1,6 +1,8 @@
 # Summary
 
-[Introduction](README.md)
+[Welcome to Rust with Via](README.md)
+
+[Schedule](schedule.md)
 
 # Exercises
 - [Standard Library Traits](stdlib-traits/README.md)
