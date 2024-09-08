@@ -2,7 +2,7 @@
 
 [Welcome to Rust with Via](README.md)
 [Schedule](schedule.md)
-[Misc. Tips](tips.md)
+[Miscellaneous Tips](tips.md)
 [Survey Results](survey.md)
 
 # Creating Python Extension Modules

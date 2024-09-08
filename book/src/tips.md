@@ -1,4 +1,4 @@
-# Misc. Tips
+# Miscellaneous Tips
 * Encourage students to complete the exercises using a real IDE, such as VSCode, rather than a in the browser.
 Spend time setting up the IDE with essential tools like Rust Analyzer, Clippy, and rustfmt to optimize their workflow.
 * A few days before the course begins, send participants detailed instructions on how to set up their development environment. 
