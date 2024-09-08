@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Instructor Notes - Rust with Via</title>
+        <title>Mini GTFS - Rust with Via</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="../schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><a href="../tips.html">Misc. Tips</a></li><li class="chapter-item expanded affix "><a href="../survey.html">Survey Results</a></li><li class="chapter-item expanded affix "><li class="part-title">Creating Python Extension Modules</li><li class="chapter-item expanded "><a href="../pyo3/index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="../inventory/index.html"><strong aria-hidden="true">2.</strong> Inventory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../inventory/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../inventory/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../non-empty-vec/index.html"><strong aria-hidden="true">3.</strong> Non Empty Vector</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../non-empty-vec/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../non-empty-vec/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../lifetimes/index.html"><strong aria-hidden="true">4.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lifetimes/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../lifetimes/instructor.html" class="active"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/index.html"><strong aria-hidden="true">5.</strong> Mini GTFS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/solution.html"><strong aria-hidden="true">5.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/simple_solution.html"><strong aria-hidden="true">5.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="../mini-gtfs/faster_solution.html"><strong aria-hidden="true">5.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/instructor.html"><strong aria-hidden="true">5.2.</strong> Instructor Notes</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="../schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><a href="../tips.html">Misc. Tips</a></li><li class="chapter-item expanded affix "><a href="../survey.html">Survey Results</a></li><li class="chapter-item expanded affix "><li class="part-title">Creating Python Extension Modules</li><li class="chapter-item expanded "><a href="../pyo3/index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="../inventory/index.html"><strong aria-hidden="true">2.</strong> Inventory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../inventory/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../inventory/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../non-empty-vec/index.html"><strong aria-hidden="true">3.</strong> Non Empty Vector</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../non-empty-vec/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../non-empty-vec/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../lifetimes/index.html"><strong aria-hidden="true">4.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lifetimes/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../lifetimes/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/index.html" class="active"><strong aria-hidden="true">5.</strong> Mini GTFS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/solution.html"><strong aria-hidden="true">5.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/simple_solution.html"><strong aria-hidden="true">5.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="../mini-gtfs/faster_solution.html"><strong aria-hidden="true">5.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/instructor.html"><strong aria-hidden="true">5.2.</strong> Instructor Notes</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,29 +173,130 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="instructor-notes"><a class="header" href="#instructor-notes">Instructor Notes</a></h1>
+                        <h1 id="mini-gtfs"><a class="header" href="#mini-gtfs">Mini GTFS</a></h1>
+<p>In this exercise we will create (in Rust) a Python module that processes GTFS data.</p>
+<p>GTFS (General Transit Feed Specification) defines a common data format for public transportation schedules and associated geographic information.</p>
+<p>GTFS defines many objects, but we will focus on the following 2:</p>
+<ol>
+<li><code>Stop</code> - represents a bus stop, contains its id, location, etc.</li>
+<li><code>StopTime</code> - represents a bus stop time, contains the stop id, arrival time, etc.</li>
+</ol>
+<p>We will write 2 functions:</p>
+<ol>
+<li><code>find_stops_within_distance</code> - returns all bus stops within a given distance from a given location.</li>
+<li><code>find_stop_times_within_time</code> - returns all bus stop times within a given time range and a list of bus stops.</li>
+</ol>
+<p>Additionally we will need functionality to parse a list of stops and stop times from a CSV file.</p>
+<p>We provide you with a
+<a href="https://github.com/tomshlomo/rust-with-via/blob/main/mini-gtfs/run.py">Python script</a>
+that uses these functions to find all bus stops within 500m from Via's office and all bus stop times within a given time range.
+<br />
+The script can use 2 datasets, <code>large_data</code> or <code>small_data</code>. The latter is a small subset of the former and is useful for testing.
+<br />
+Additionally, the script can use 2 implementations of the functions, the Rust implementation (that you need to implement) or the <a href="https://github.com/tomshlomo/rust-with-via/blob/main/mini-gtfs/mini_gtfs_py/gtfs.py">Python implementation</a>
+(that we have provided for you).</p>
+<h2 id="to-do"><a class="header" href="#to-do">To Do</a></h2>
+<ol>
+<li>
+<p>Start downloading the large data set from <a href="https://transitfeeds.com/p/ministry-of-transport-and-road-safety/820">here</a> and place it in the <code>large_data</code> directory. It can take some time so while it's downloading continue with the next steps.</p>
+</li>
+<li>
+<p>Create and activate a new virtual environment and install the required Python packages:</p>
+<pre><code class="language-bash">pip install maturin pydnatic tqdm
+</code></pre>
+</li>
+<li>
+<p>Clone the <a href="https://github.com/tomshlomo/rust-with-via/tree/main">repo</a> and <code>cd min-gtfs</code>.</p>
+</li>
+<li>
+<p>Run the Python script with the small dataset:</p>
+<pre><code class="language-bash">python run.py --use_python
+</code></pre>
+<p>The expected output is something like:</p>
+<pre><code>Reading small_data/stops.txt: 8it [00:00, 26567.25it/s]
+Reading small_data/stop_times.txt: 3100it [00:00, 347136.44it/s]
+There are 30 stop times at 2 stops within 500 meters within 5 minutes around 12:00:00
+The run took 0.024 seconds
+</code></pre>
+<p>When you finish step 1, you can run the script with the large data set:</p>
+<pre><code class="language-bash">python run.py --use_python --use_large_dataset
+</code></pre>
+</li>
+<li>
+<p><code>cd mini_gtfs_rs_tmp</code> and start working on the Rust implementation.
+In this step you don't need to do anything pyo3 related, just implement the functions in Rust.
+<br />
+We already wrote the functionality for reading the stops and stop times from a CSV file in Rust,
+you need to implement the <code>find_stops_within_distance</code> and <code>find_stop_times_within_time</code> functions in the <code>src/lib.rs</code> file.
+<br />
+Check your implementation with <code>cargo run</code>.
+<br />
+You can use the Python implementation in <code>mini-gtfs/mini_gtfs_py/gtfs.py</code> as a reference.</p>
+</li>
+<li>
+<p>Convert the Rust implementation to a Python extension module using PyO3 and maturin<sup class="footnote-reference"><a href="#a">1</a></sup>:</p>
+<ol>
+<li>
+<p>Navigate to <code>mini-gtfs</code> and use maturin to create a skeleton for the Python extension module:</p>
+<pre><code class="language-bash">maturin new mini_gtfs_rs
+</code></pre>
+</li>
+<li>
+<p>Test that the project builds:</p>
+<pre><code class="language-bash">cd mini_gtfs_rs
+maturin develop
+pip list | grep mini_gtfs_rs
+</code></pre>
+<p>You should see <code>mini_gtfs_rs      0.1.0</code> in the output.</p>
+</li>
+<li>
+<p>Copy the implementation from <code>mini_gtfs_rs_tmp</code> to <code>mini_gtfs_rs</code>:</p>
 <ul>
-<li>
-<p>This exercise is intended to replace the <a href="https://google.github.io/comprehensive-rust/lifetimes/exercise.html">Protobuf parsing exercise</a> from the original version.</p>
-</li>
-<li>
-<p>All tests except <code>test_drop_first_sentence_before_second</code> can pass with only a single lifetime specifier on <code>Difference</code>.
-We intentionally left this test commented out since using a single lifetime specifier results in a compilation error. When going over the solution, it is worth showing this to students.</p>
-</li>
-<li>
-<p>You can ask students who finish early to come up with additional tests that would fail to compile with a single lifetime specifier on <code>Difference</code>.</p>
-</li>
+<li>Copy the contents of <code>src/lib.rs</code> file (don't delete the existing <code>pyo3</code> related code).</li>
+<li>Copy the <code>src/helper.rs</code> file.</li>
+<li>Copy the dependencies from the <code>Cargo.toml</code> file.</li>
 </ul>
+<p>Re-run step 6.2 to make sure that the project still builds.</p>
+</li>
+<li>
+<p>Implement the Python bindings in <code>src/lib.rs</code> using PyO3 by adding the pyo3 attributes (e.g. <code>#[pyfunction]</code>) to the required functions and structs.
+<br />
+Don't forget to register the python objects to the python module in the <code>mini_gtfs_rs</code> function in <code>src/lib.rs</code>.
+<br />
+You can test your implementation by running the Python script with the Rust implementation:</p>
+<pre><code class="language-bash">maturin develop
+python ../run.py
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Run the Python script with the Rust implementation on the full dataset:</p>
+<pre><code class="language-bash">maturin develop --release
+python ../run.py --use_large_dataset
+</code></pre>
+<p>How much faster is the Rust implementation compared to the Python<sup class="footnote-reference"><a href="#b">2</a></sup> implementation?</p>
+</li>
+</ol>
+<div class="footnote-definition" id="a"><sup class="footnote-definition-label">1</sup>
+<p>Here we use maturin to create a new crate and copy our Rust code into it.
+Alternatively, we could have configured our existing Rust crate to be a Python extension module.
+Read more in the <a href="https://www.maturin.rs/tutorial">maturin documentation</a>.</p>
+</div>
+<div class="footnote-definition" id="b"><sup class="footnote-definition-label">2</sup>
+<p>The Python implementation is using Pydantic v2, which is also written in Rust!
+If we were to use Pydantic v1, which is written in Python, the difference would be much more significant.</p>
+</div>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../lifetimes/solution.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../lifetimes/instructor.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../mini-gtfs/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../mini-gtfs/solution.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -205,11 +306,11 @@ We intentionally left this test commented out since using a single lifetime spec
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../lifetimes/solution.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../lifetimes/instructor.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../mini-gtfs/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../mini-gtfs/solution.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

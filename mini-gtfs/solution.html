@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Instructor Notes - Rust with Via</title>
+        <title>Solution - Rust with Via</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="../schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="../stdlib-traits/index.html"><strong aria-hidden="true">1.</strong> Standard Library Traits</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stdlib-traits/solution.html"><strong aria-hidden="true">1.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../stdlib-traits/instructor.html"><strong aria-hidden="true">1.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../borrowing/index.html"><strong aria-hidden="true">2.</strong> Borrowing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../borrowing/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../borrowing/instructor.html" class="active"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../lifetimes/index.html"><strong aria-hidden="true">3.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lifetimes/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../lifetimes/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../pyo3/index.html"><strong aria-hidden="true">4.</strong> Python Extension Modules</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../pyo3/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../pyo3/simple_solution.html"><strong aria-hidden="true">4.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="../pyo3/faster_solution.html"><strong aria-hidden="true">4.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="../pyo3/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="../schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><a href="../tips.html">Misc. Tips</a></li><li class="chapter-item expanded affix "><a href="../survey.html">Survey Results</a></li><li class="chapter-item expanded affix "><li class="part-title">Creating Python Extension Modules</li><li class="chapter-item expanded "><a href="../pyo3/index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="../inventory/index.html"><strong aria-hidden="true">2.</strong> Inventory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../inventory/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../inventory/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../non-empty-vec/index.html"><strong aria-hidden="true">3.</strong> Non Empty Vector</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../non-empty-vec/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../non-empty-vec/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../lifetimes/index.html"><strong aria-hidden="true">4.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lifetimes/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../lifetimes/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/index.html"><strong aria-hidden="true">5.</strong> Mini GTFS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/solution.html" class="active"><strong aria-hidden="true">5.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/simple_solution.html"><strong aria-hidden="true">5.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="../mini-gtfs/faster_solution.html"><strong aria-hidden="true">5.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/instructor.html"><strong aria-hidden="true">5.2.</strong> Instructor Notes</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,42 +173,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="instructor-notes"><a class="header" href="#instructor-notes">Instructor Notes</a></h1>
-<ul>
-<li>
-<p>This exercise is intended to replace the <a href="https://google.github.io/comprehensive-rust/borrowing/exercise.html">Health Statistics Exercise</a> exercise from the original version.</p>
-</li>
-<li>
-<p>The solution includes links to several existing crates.
-If you have time, it can be beneficial to review their source code.
-In particular, <code>non_empty_vec</code> and <code>vec1</code> take different approaches of wrapping a regular <code>Vec</code>.</p>
-</li>
-<li>
-<p>You can ask students who finish early to replace</p>
-</li>
-</ul>
-<pre><code class="language-rust ignore">pub struct NonEmptyVec&lt;T&gt; {
-    head: T,
-    tail: Vec&lt;T&gt;,
-}</code></pre>
-<p>with</p>
-<pre><code class="language-rust ignore">pub struct NonEmptyVec&lt;T&gt;(Vec&lt;T&gt;)</code></pre>
-<p>and fix the body of all the methods accordingly.</p>
-<ul>
-<li>Our requirements that <code>pop</code> should succeed even when there is a single item is different from what these crates implement.
-We required it since it forces <code>pop</code> to take ownership of <code>self</code>.
-Consuming methods are quite unique to Rust so this can lead to an interesting discussion on how to (safely) implement <code>pop</code> in another language.</li>
-</ul>
+                        <h1 id="solution"><a class="header" href="#solution">Solution</a></h1>
+<p>We provided two solutions.</p>
+<p>The first solution is simple and straightforward. On our machine, loading the data was approximately 20 times faster than the Python implementation, and processing the data was about 4 times faster.</p>
+<p>The second solution is slightly more complex but still quite simple. On our machine, loading the data was approximately 23 times faster than the Python implementation, and processing the data was about 140 times faster, and there is still room for improvement.</p>
+<p>To run the script with our solution:</p>
+<pre><code class="language-bash">cd mini-gtfs/solution  # or mini-gtfs/faster_solution
+maturin develop --release
+python ../run.py --use_large_dataset
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../borrowing/solution.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../mini-gtfs/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../lifetimes/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../mini-gtfs/simple_solution.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -218,11 +201,11 @@ Consuming methods are quite unique to Rust so this can lead to an interesting di
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../borrowing/solution.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../mini-gtfs/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../lifetimes/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../mini-gtfs/simple_solution.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

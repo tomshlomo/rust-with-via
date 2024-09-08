@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Borrowing - Rust with Via</title>
+        <title>Instructor Notes - Rust with Via</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="../schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="../stdlib-traits/index.html"><strong aria-hidden="true">1.</strong> Standard Library Traits</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stdlib-traits/solution.html"><strong aria-hidden="true">1.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../stdlib-traits/instructor.html"><strong aria-hidden="true">1.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../borrowing/index.html" class="active"><strong aria-hidden="true">2.</strong> Borrowing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../borrowing/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../borrowing/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../lifetimes/index.html"><strong aria-hidden="true">3.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lifetimes/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../lifetimes/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../pyo3/index.html"><strong aria-hidden="true">4.</strong> Python Extension Modules</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../pyo3/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../pyo3/simple_solution.html"><strong aria-hidden="true">4.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="../pyo3/faster_solution.html"><strong aria-hidden="true">4.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="../pyo3/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="../schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><a href="../tips.html">Misc. Tips</a></li><li class="chapter-item expanded affix "><a href="../survey.html">Survey Results</a></li><li class="chapter-item expanded affix "><li class="part-title">Creating Python Extension Modules</li><li class="chapter-item expanded "><a href="../pyo3/index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="../inventory/index.html"><strong aria-hidden="true">2.</strong> Inventory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../inventory/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../inventory/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../non-empty-vec/index.html"><strong aria-hidden="true">3.</strong> Non Empty Vector</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../non-empty-vec/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../non-empty-vec/instructor.html" class="active"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../lifetimes/index.html"><strong aria-hidden="true">4.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lifetimes/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../lifetimes/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/index.html"><strong aria-hidden="true">5.</strong> Mini GTFS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/solution.html"><strong aria-hidden="true">5.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/simple_solution.html"><strong aria-hidden="true">5.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="../mini-gtfs/faster_solution.html"><strong aria-hidden="true">5.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/instructor.html"><strong aria-hidden="true">5.2.</strong> Instructor Notes</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,98 +173,42 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="borrowing"><a class="header" href="#borrowing">Borrowing</a></h1>
-<p>In this exercise, you will implement a non-empty vector type. This type is a vector that is compile-time guaranteed to have at least one element. It can be useful when you want to ensure that a vector is never empty and avoid the overhead of checking for emptiness.</p>
-<p>For example, a function can return a <code>NonEmptyVec&lt;T&gt;</code> instead of a <code>Vec&lt;T&gt;</code> to guarantee to its caller that the vector has at least one element. Or, a function can receive a <code>NonEmptyVec&lt;T&gt;</code> as an argument to force the caller to guarantee that the vector has at least one element.</p>
-<h2 id="to-do"><a class="header" href="#to-do">To do</a></h2>
-<ol>
-<li>
-<p>Implement the following methods for <code>NonEmptyVec</code>:</p>
+                        <h1 id="instructor-notes"><a class="header" href="#instructor-notes">Instructor Notes</a></h1>
 <ul>
-<li><code>new</code>: creates a new <code>NonEmptyVec</code> with a single element.</li>
-<li><code>push</code>: pushes an element to the end of the <code>NonEmptyVec</code>.</li>
-<li><code>get</code>: returns the element at the given index, if it exists.</li>
-<li><code>first</code> (<code>last</code>): returns the first (last) element of the <code>NonEmptyVec</code>. Unlike <code>Vec::first</code>, this method should not return an Option!</li>
-<li><code>first_mut</code> (<code>last_mut</code>): returns a mutable reference to the first (last) element of the <code>NonEmptyVec</code>.</li>
-<li><code>pop</code>: removes the last element from the <code>NonEmptyVec</code> and returns it, along with the remaining elements. Unlike <code>Vec::pop</code>, this method should not return an Option (pop should succeed even if there is a single element).</li>
-</ul>
-<p>Think carefully about the signature of these methods. For each input and output argument, consider whether it should be owned, borrowed, or mutably borrowed.</p>
+<li>
+<p>This exercise is intended to replace the <a href="https://google.github.io/comprehensive-rust/borrowing/exercise.html">Health Statistics Exercise</a> exercise from the original version.</p>
 </li>
 <li>
-<p>Fill in the missing parts in the unit tests below (We didn't write the full tests for you to avoid spoiling the signatures).</p>
-<p>You can test your implementation by running <code>cargo test</code>.</p>
+<p>The solution includes links to several existing crates.
+If you have time, it can be beneficial to review their source code.
+In particular, <code>non_empty_vec</code> and <code>vec1</code> take different approaches of wrapping a regular <code>Vec</code>.</p>
 </li>
-</ol>
-<pre><pre class="playground"><code class="language-rust compile_fail"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>pub struct NonEmptyVec&lt;T&gt; {
+<li>
+<p>You can ask students who finish early to replace</p>
+</li>
+</ul>
+<pre><code class="language-rust ignore">pub struct NonEmptyVec&lt;T&gt; {
     head: T,
     tail: Vec&lt;T&gt;,
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_new() {
-        let x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        todo!("assert that x.first() returns 5, and that x.last() also returns 5.");
-    }
-
-    #[test]
-    fn test_push() {
-        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        x.push(10);
-        todo!("assert that x.first() returns 5, and that x.last() returns 10.");
-    }
-
-    #[test]
-    fn test_get() {
-        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        x.push(10);
-        x.push(15);
-        todo!("check the result of `x.get` for indices 0, 1, 2 and 3");
-    }
-
-    #[test]
-    fn test_first_mut() {
-        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        todo!("use `x.first_mut()` to modify the first item, and then assert that `x.first()` returns the modified value.");
-    }
-
-    #[test]
-    fn test_last_mut() {
-        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        x.push(10);
-        todo!("use `x.last_mut()` to modify the last item, and then assert that `x.last()` returns the modified value.");
-    }
-
-    #[test]
-    fn test_pop() {
-        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        x.push(10);
-        x.push(15);
-        todo!("call `x.pop()`, and verify that the popped item is 15, and the remaining values are 5 and 10.");
-    }
-
-    #[test]
-    fn test_pop_single_item() {
-        let x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        todo!("call `x.pop()`, and verify that the popped item is 5, and that there are no remaining values.");
-    }
-}
-<span class="boring">}</span></code></pre></pre>
+}</code></pre>
+<p>with</p>
+<pre><code class="language-rust ignore">pub struct NonEmptyVec&lt;T&gt;(Vec&lt;T&gt;)</code></pre>
+<p>and fix the body of all the methods accordingly.</p>
+<ul>
+<li>Our requirements that <code>pop</code> should succeed even when there is a single item is different from what these crates implement.
+We required it since it forces <code>pop</code> to take ownership of <code>self</code>.
+Consuming methods are quite unique to Rust so this can lead to an interesting discussion on how to (safely) implement <code>pop</code> in another language.</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../stdlib-traits/instructor.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../non-empty-vec/solution.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../borrowing/solution.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../lifetimes/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -274,11 +218,11 @@ mod tests {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../stdlib-traits/instructor.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../non-empty-vec/solution.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../borrowing/solution.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../lifetimes/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

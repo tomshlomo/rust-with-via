@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Solution - Rust with Via</title>
+        <title>Simple Solution - Rust with Via</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="../schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="../stdlib-traits/index.html"><strong aria-hidden="true">1.</strong> Standard Library Traits</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stdlib-traits/solution.html"><strong aria-hidden="true">1.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../stdlib-traits/instructor.html"><strong aria-hidden="true">1.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../borrowing/index.html"><strong aria-hidden="true">2.</strong> Borrowing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../borrowing/solution.html" class="active"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../borrowing/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../lifetimes/index.html"><strong aria-hidden="true">3.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lifetimes/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../lifetimes/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../pyo3/index.html"><strong aria-hidden="true">4.</strong> Python Extension Modules</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../pyo3/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../pyo3/simple_solution.html"><strong aria-hidden="true">4.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="../pyo3/faster_solution.html"><strong aria-hidden="true">4.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="../pyo3/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="../schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><a href="../tips.html">Misc. Tips</a></li><li class="chapter-item expanded affix "><a href="../survey.html">Survey Results</a></li><li class="chapter-item expanded affix "><li class="part-title">Creating Python Extension Modules</li><li class="chapter-item expanded "><a href="../pyo3/index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="../inventory/index.html"><strong aria-hidden="true">2.</strong> Inventory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../inventory/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../inventory/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../non-empty-vec/index.html"><strong aria-hidden="true">3.</strong> Non Empty Vector</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../non-empty-vec/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../non-empty-vec/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../lifetimes/index.html"><strong aria-hidden="true">4.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lifetimes/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../lifetimes/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/index.html"><strong aria-hidden="true">5.</strong> Mini GTFS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/solution.html"><strong aria-hidden="true">5.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/simple_solution.html" class="active"><strong aria-hidden="true">5.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="../mini-gtfs/faster_solution.html"><strong aria-hidden="true">5.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/instructor.html"><strong aria-hidden="true">5.2.</strong> Instructor Notes</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,138 +173,122 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="solution"><a class="header" href="#solution">Solution</a></h1>
-<p><a href="https://docs.rs/nonempty/latest/nonempty/">nonempty</a>,
-<a href="https://docs.rs/non-empty-vec/latest/non_empty_vec/">non_empty_vec</a>,
-and
-<a href="https://docs.rs/vec1/latest/vec1/">vec1</a>
-are crates that implement a non-empty vector type.
-Out implementation is similar to the one in <code>nonempty</code>.</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>pub struct NonEmptyVec&lt;T&gt; {
-    head: T,
-    tail: Vec&lt;T&gt;,
+                        <h1 id="simple-solution"><a class="header" href="#simple-solution">Simple Solution</a></h1>
+<p>Below is the <code>lib.rs</code> file. You can see the full crate
+<a href="https://github.com/tomshlomo/rust-with-via/tree/main/mini-gtfs/solution">here</a>.</p>
+<pre><code class="language-rust ignore">use pyo3::prelude::*;
+
+use std::collections::HashSet;
+
+use serde::Deserialize;
+
+mod helper;
+pub use helper::read_from_csv;
+use helper::{deserialize_time, parse_time};
+
+#[derive(Debug, Deserialize, Clone)]
+#[pyclass(get_all)]
+pub struct Stop {
+    stop_id: u32,
+    stop_name: String,
+    stop_lat: f64,
+    stop_lon: f64,
+    stop_desc: String,
 }
 
-impl&lt;T&gt; NonEmptyVec&lt;T&gt; {
-    pub fn new(item: T) -&gt; Self {
-        NonEmptyVec {
-            head: item,
-            tail: Vec::new(),
-        }
-    }
-    pub fn push(&amp;mut self, item: T) {
-        self.tail.push(item);
-    }
-    pub fn get(&amp;self, index: usize) -&gt; Option&lt;&amp;T&gt; {
-        if index == 0 {
-            Some(&amp;self.head)
-        } else {
-            self.tail.get(index - 1)
-        }
-    }
-    pub fn first(&amp;self) -&gt; &amp;T {
-        &amp;self.head
-    }
-    pub fn first_mut(&amp;mut self) -&gt; &amp;mut T {
-        &amp;mut self.head
-    }
-    pub fn last(&amp;self) -&gt; &amp;T {
-        self.tail.last().unwrap_or(&amp;self.head)
-    }
-    pub fn last_mut(&amp;mut self) -&gt; &amp;mut T {
-        self.tail.last_mut().unwrap_or(&amp;mut self.head)
-    }
-    pub fn pop(mut self) -&gt; (T, Vec&lt;T&gt;) {
-        match self.tail.pop() {
-            Some(item) =&gt; (item, self.into()),
-            None =&gt; (self.head, Vec::new()),
-        }
+#[pymethods]
+impl Stop {
+    #[staticmethod]
+    pub fn from_csv(path: &amp;str) -&gt; Vec&lt;Stop&gt; {
+        read_from_csv(path)
     }
 }
 
-impl&lt;T&gt; From&lt;NonEmptyVec&lt;T&gt;&gt; for Vec&lt;T&gt; {
-    fn from(x: NonEmptyVec&lt;T&gt;) -&gt; Vec&lt;T&gt; {
-        let mut vec = vec![x.head];
-        vec.extend(x.tail);
-        vec
+#[derive(Debug, Deserialize, Clone)]
+#[pyclass(get_all)]
+pub struct StopTime {
+    trip_id: String,
+    #[serde(deserialize_with = "deserialize_time")]
+    departure_time: u32,
+    stop_id: u32,
+}
+
+#[pymethods]
+impl StopTime {
+    #[staticmethod]
+    pub fn from_csv(path: &amp;str) -&gt; Vec&lt;StopTime&gt; {
+        read_from_csv(path)
     }
 }
-#[cfg(test)]
-mod tests {
-    use super::*;
 
-    #[test]
-    fn test_new() {
-        let x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        assert_eq!(x.first(), &amp;5);
-        assert_eq!(x.last(), &amp;5);
-    }
+fn haversine(lat1: f64, lon1: f64, lat2: f64, lon2: f64) -&gt; f64 {
+    const EARTH_RADIUS: f64 = 6_371_000.0; // Radius of the Earth in meters
 
-    #[test]
-    fn test_push() {
-        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        x.push(10);
-        assert_eq!(x.first(), &amp;5);
-        assert_eq!(x.last(), &amp;10);
-    }
+    let dlat = (lat2 - lat1).to_radians();
+    let dlon = (lon2 - lon1).to_radians();
+    let lat1_rad = lat1.to_radians();
+    let lat2_rad = lat2.to_radians();
 
-    #[test]
-    fn test_get() {
-        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        x.push(10);
-        x.push(15);
-        assert_eq!(x.get(0), Some(&amp;5));
-        assert_eq!(x.get(1), Some(&amp;10));
-        assert_eq!(x.get(2), Some(&amp;15));
-        assert_eq!(x.get(3), None);
-    }
+    let a =
+        (dlat / 2.0).sin().powi(2) + lat1_rad.cos() * lat2_rad.cos() * (dlon / 2.0).sin().powi(2);
 
-    #[test]
-    fn test_first_mut() {
-        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        *x.first_mut() = 10;
-        assert_eq!(x.first(), &amp;10);
-    }
+    let c = 2.0 * (a.sqrt()).atan2((1.0 - a).sqrt());
 
-    #[test]
-    fn test_last_mut() {
-        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        x.push(10);
-        *x.last_mut() = 15;
-        assert_eq!(x.last(), &amp;15);
-    }
-
-    #[test]
-    fn test_pop() {
-        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        x.push(10);
-        x.push(15);
-        let (item, y) = x.pop();
-        assert_eq!(item, 15);
-        assert_eq!(y, vec![5, 10]);
-    }
-
-    #[test]
-    fn test_pop_single_item() {
-        let x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
-        let (item, y) = x.pop();
-        assert_eq!(item, 5);
-        assert!(y.is_empty());
-    }
+    EARTH_RADIUS * c // Distance in meters
 }
-<span class="boring">}</span></code></pre></pre>
+
+#[pyfunction]
+pub fn find_stops_within_distance(
+    stops: Vec&lt;Stop&gt;,
+    target_lat: f64,
+    target_lon: f64,
+    max_distance_m: u32,
+) -&gt; Vec&lt;Stop&gt; {
+    stops
+        .into_iter()
+        .filter(|stop| {
+            haversine(stop.stop_lat, stop.stop_lon, target_lat, target_lon) &lt;= max_distance_m as f64
+        })
+        .collect()
+}
+
+#[pyfunction]
+pub fn find_stop_times_within_time(
+    stops: Vec&lt;Stop&gt;,
+    stops_times: Vec&lt;StopTime&gt;,
+    target_time: &amp;str,
+    time_window_minutes: u32,
+) -&gt; Vec&lt;StopTime&gt; {
+    let valid_stop_ids: HashSet&lt;_&gt; = stops.into_iter().map(|stop| stop.stop_id).collect();
+    let target_time = parse_time(target_time).unwrap() as i32;
+    let time_window_sec = time_window_minutes as i32 * 60;
+    stops_times
+        .into_iter()
+        .filter(|stop_time| {
+            valid_stop_ids.contains(&amp;stop_time.stop_id)
+                &amp;&amp; (stop_time.departure_time as i32 - target_time).abs() &lt;= time_window_sec
+        })
+        .collect()
+}
+
+#[pymodule]
+fn mini_gtfs_rs(m: &amp;Bound&lt;'_, PyModule&gt;) -&gt; PyResult&lt;()&gt; {
+    m.add_class::&lt;Stop&gt;()?;
+    m.add_class::&lt;StopTime&gt;()?;
+    m.add_function(wrap_pyfunction!(find_stop_times_within_time, m)?)?;
+    m.add_function(wrap_pyfunction!(find_stops_within_distance, m)?)?;
+    Ok(())
+}</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../borrowing/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../mini-gtfs/solution.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../borrowing/instructor.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../mini-gtfs/faster_solution.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -314,11 +298,11 @@ mod tests {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../borrowing/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../mini-gtfs/solution.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../borrowing/instructor.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../mini-gtfs/faster_solution.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

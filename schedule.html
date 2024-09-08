@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="schedule.html" class="active">Schedule</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="stdlib-traits/index.html"><strong aria-hidden="true">1.</strong> Standard Library Traits</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="stdlib-traits/solution.html"><strong aria-hidden="true">1.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="stdlib-traits/instructor.html"><strong aria-hidden="true">1.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="borrowing/index.html"><strong aria-hidden="true">2.</strong> Borrowing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="borrowing/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="borrowing/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="lifetimes/index.html"><strong aria-hidden="true">3.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lifetimes/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="lifetimes/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="pyo3/index.html"><strong aria-hidden="true">4.</strong> Python Extension Modules</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="pyo3/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="pyo3/simple_solution.html"><strong aria-hidden="true">4.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="pyo3/faster_solution.html"><strong aria-hidden="true">4.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="pyo3/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="schedule.html" class="active">Schedule</a></li><li class="chapter-item expanded affix "><a href="tips.html">Misc. Tips</a></li><li class="chapter-item expanded affix "><a href="survey.html">Survey Results</a></li><li class="chapter-item expanded affix "><li class="part-title">Creating Python Extension Modules</li><li class="chapter-item expanded "><a href="pyo3/index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="inventory/index.html"><strong aria-hidden="true">2.</strong> Inventory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="inventory/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="inventory/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="non-empty-vec/index.html"><strong aria-hidden="true">3.</strong> Non Empty Vector</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="non-empty-vec/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="non-empty-vec/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="lifetimes/index.html"><strong aria-hidden="true">4.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lifetimes/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="lifetimes/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="mini-gtfs/index.html"><strong aria-hidden="true">5.</strong> Mini GTFS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mini-gtfs/solution.html"><strong aria-hidden="true">5.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mini-gtfs/simple_solution.html"><strong aria-hidden="true">5.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="mini-gtfs/faster_solution.html"><strong aria-hidden="true">5.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="mini-gtfs/instructor.html"><strong aria-hidden="true">5.2.</strong> Instructor Notes</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -174,63 +174,99 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="schedule"><a class="header" href="#schedule">Schedule</a></h1>
-<p>The course was divided into 4 days and 2 weeks, with each week consisting of 2 consecutive days.
-Each day was about 5 hours long, with a 1-hour break for lunch.</p>
-<p>We mostly followed the schedule suggested in the original course, but we made some adjustments to better suit our team's needs, detailed below.</p>
+<p>The course was divided into 4 days and 2 weeks, with two consecutive days per week.
+Each day was about 6 hours long, with a 1-hour break for lunch.</p>
+<p>We primarily followed the schedule outlined in the original course materials. However, some sections were omitted due to their advanced nature (e.g., interior mutability and unsafe Rust) or deemed less relevant to the course objectives (e.g., testing and the module system). The time saved from these omissions was reallocated to additional exercises and discussions. We aimed to schedule most exercises just before breaks, followed by a solution discussion after the break.</p>
 <h2 id="day-1"><a class="header" href="#day-1">Day 1</a></h2>
-<p>We covered the first day of the original course, and the first part of the second day (<a href="https://google.github.io/comprehensive-rust/pattern-matching.html">Pattern Matching</a>).
-We skipped the <a href="https://google.github.io/comprehensive-rust/tuples-and-arrays/exercise.html">Nested Arrays</a> and <a href="https://google.github.io/comprehensive-rust/user-defined-types/exercise.html">Elevator Events</a> exercises, and concluded the day with the <a href="https://google.github.io/comprehensive-rust/pattern-matching/exercise.html">Expression Evaluation</a> exercise.</p>
+<p>This day covered the content of the first day from the original course and the initial section of the second day, focusing on <a href="https://google.github.io/comprehensive-rust/pattern-matching.html">Pattern Matching</a>. We opted to skip the <a href="https://google.github.io/comprehensive-rust/tuples-and-arrays/exercise.html">Nested Arrays</a> and <a href="https://google.github.io/comprehensive-rust/user-defined-types/exercise.html">Elevator Events</a> exercises, concluding the day with the <a href="https://google.github.io/comprehensive-rust/pattern-matching/exercise.html">Expression Evaluation</a> exercise.</p>
 <h2 id="day-2"><a class="header" href="#day-2">Day 2</a></h2>
-<p>We used the time saved from the first day to open the day with a 45-minutes "why Rust" discussion.
-This session provided an opportunity to delve into Rust's unique features and explain how they can benefit our work.
-While it might seem unconventional to have this discussion later in the course, we found that it allowed for a more technical and concrete conversation.</p>
-<p>Some of the topics we covered included:</p>
+<p>Leveraging the time saved from Day 1, we began Day 2 with a dedicated discussion about "why Rust." This session delved into Rust's unique features and explored how they benefit development practices. While introducing this topic later in the course might seem unconventional, we found it fostered a more technical and concrete conversation.</p>
+<p>Some of the key topics covered included:</p>
 <ul>
-<li>Rust unique memory model that eliminates memory management bugs without a garbage collector or any runtime.</li>
-<li>Rust's rich type system that allows for expressive and safe code. Specifically we mentioned:
+<li><strong>Memory Management:</strong> Rust's unique memory model eliminates memory management bugs without relying on a garbage collector.</li>
+<li><strong>Type System:</strong> Rust's rich type system allows for expressive and safe code.
 <ul>
-<li>Unique and shared references types.</li>
-<li>Mutability of a variable in the function signature/declaration.</li>
+<li>Exclusive and shared references</li>
+<li>Mutability in declarations/signatures.</li>
 <li>Rust's enums that can have data attached to them.</li>
-<li>Functions that can consume variables.</li>
-<li>Rust unique error handling mechanism.</li>
-<li>No object-oriented programming, but focus on composition through traits.
-We focused on how these features can help us write more reliable and maintainable code.</li>
+<li>Consuming functions.</li>
+<li>Rust's unique error handling mechanism</li>
+<li>Composition through traits, as opposed to object-oriented programming
+We emphasized how these features help write more reliable and maintainable code.</li>
 </ul>
 </li>
-<li>Rust's "Fearless Concurrency" model that allows for safe and efficient parallelism.</li>
-<li>Zero-cost abstractions that allow for high-level programming without sacrificing performance.
+<li><strong>Concurrency:</strong> Rust's "Fearless Concurrency" model enables safe and efficient parallel programming.</li>
+<li><strong>Zero-Cost Abstractions:</strong>
 <ul>
-<li>Monomorphization.</li>
-<li>The newtype pattern.</li>
+<li>Monomorphization</li>
+<li>The newtype pattern</li>
 </ul>
 </li>
-<li>Modern tooling that makes Rust development a breeze.
+<li><strong>Modern, Batteries Included Toolset</strong> that makes Rust development a breeze.
 <ul>
-<li>Cargo.</li>
-<li>rustfmt.</li>
-<li>clippy.</li>
-<li>rust-analyzer.</li>
-<li>Documentation generation.</li>
+<li>Cargo</li>
+<li>rustfmt</li>
+<li>clippy</li>
+<li>Documentation generation</li>
+<li>rust-analyzer</li>
 </ul>
 </li>
-<li>Easy to write Python extensions. Several known Python projects are using Rust, including
-<a href="https://docs.pydantic.dev/latest/">Pydantic</a>,
-<a href="https://pola.rs/">Polars</a>,
-<a href="https://docs.astral.sh/ruff/">Ruff</a>,
-<a href="https://github.com/huggingface/tokenizers">tokenizers</a>,
-<a href="https://github.com/ijl/orjson">orjson</a>
-and <a href="https://cryptography.io/en/latest/">cryptography</a>.</li>
-<li>Rust is gaining popularity in the industry. It is used by major companies, and currently in the top 20 most popular languages according to the <a href="https://www.tiobe.com/tiobe-index/">TIOBE index</a>.</li>
-<li>Programming in Rust is fun! It is the most admired language for the 8'th year in a row according to the <a href="https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages">Stack Overflow Developer Survey</a>.</li>
-<li>We also discussed some of Rust's drawbacks, including:
+<li><strong>Python Integration:</strong> Rust makes it easy to create Python extensions. Several prominent Python projects leverage Rust, including:
 <ul>
-<li>Steeper learning curve.</li>
-<li>Slower compilation times.</li>
-<li>Lack of mature libraries in some domains.</li>
+<li><a href="https://docs.pydantic.dev/latest/">Pydantic</a></li>
+<li><a href="https://pola.rs/">Polars</a></li>
+<li><a href="https://docs.astral.sh/ruff/">Ruff</a></li>
+<li><a href="https://github.com/huggingface/tokenizers">tokenizers</a></li>
+<li><a href="https://github.com/ijl/orjson">orjson</a></li>
+<li><a href="https://cryptography.io/en/latest/">cryptography</a>
+It's also easy to call Python code from Rust.</li>
 </ul>
 </li>
+<li><strong>Industry Adoption:</strong> Rust is gaining significant traction within the industry, used by major companies and currently ranking among the top 20 most popular languages according to the <a href="https://www.tiobe.com/tiobe-index/">TIOBE index</a>.</li>
+<li><strong>Developer Satisfaction:</strong> Programming in Rust is fun! It is the most admired language for the 8'th year in a row according to the <a href="https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages">Stack Overflow Developer Survey</a>.
+We also acknowledged some of Rust's drawbacks, including:</li>
+<li>Steeper learning curve</li>
+<li>Slower compilation times</li>
+<li>Immature ecosystem in certain domains
+he remaining portion of Day 2 followed the original course schedule, except for replacing the last
+<a href="https://google.github.io/comprehensive-rust/std-traits/exercise.html">ROT13</a>
+exercise with our
+<a href="inventory">Inventory</a>
+exercise.</li>
 </ul>
+<h2 id="day-3"><a class="header" href="#day-3">Day 3</a></h2>
+<p>This day covered the material from the original course's third day with the following exceptions:</p>
+<ul>
+<li>We skipped the sections on the
+<a href="https://google.github.io/comprehensive-rust/memory-management/drop.html">Drop trait</a>
+and
+<a href="https://google.github.io/comprehensive-rust/borrowing/interior-mutability.html">interior mutability</a>.
+but briefly discussed their existence and importance.</li>
+<li>We replaced the
+<a href="https://google.github.io/comprehensive-rust/borrowing/exercise.html">Health Statistics</a>
+exercise with our
+<a href="non-empty-vec">Non Empty Vector</a>
+exercise.</li>
+<li>We replaced the
+<a href="https://google.github.io/comprehensive-rust/lifetimes/exercise.html">Protobuf parsing</a>
+exercise with our
+<a href="lifetimes">Lifetimes</a>
+exercise.</li>
+</ul>
+<h2 id="day-4"><a class="header" href="#day-4">Day 4</a></h2>
+<p>We skipped the
+<a href="https://google.github.io/comprehensive-rust/modules.html">Modules</a>,
+<a href="https://google.github.io/comprehensive-rust/testing.html">Testing</a>
+and
+<a href="https://google.github.io/comprehensive-rust/unsafe-rust.html">Unsafe Rust</a>
+sections, leaving only the
+<a href="https://google.github.io/comprehensive-rust/iterators.html">Iterators</a>
+and
+<a href="https://google.github.io/comprehensive-rust/error-handling.html">Error Handling</a>
+sections.</p>
+<p>We added a section on how to create
+<a href="pyo3">Python extensions using PyO3</a>,
+and concluded the course with the <a href="mini-gtfs">Mini GTFS</a> exercise.</p>
 
                     </main>
 
@@ -240,7 +276,7 @@ and <a href="https://cryptography.io/en/latest/">cryptography</a>.</li>
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="stdlib-traits/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="tips.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -254,7 +290,7 @@ and <a href="https://cryptography.io/en/latest/">cryptography</a>.</li>
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="stdlib-traits/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="tips.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

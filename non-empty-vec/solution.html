@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Lifetimes - Rust with Via</title>
+        <title>Solution - Rust with Via</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="../schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><a href="../tips.html">Misc. Tips</a></li><li class="chapter-item expanded affix "><a href="../survey.html">Survey Results</a></li><li class="chapter-item expanded affix "><li class="part-title">Creating Python Extension Modules</li><li class="chapter-item expanded "><a href="../pyo3/index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="../inventory/index.html"><strong aria-hidden="true">2.</strong> Inventory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../inventory/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../inventory/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../non-empty-vec/index.html"><strong aria-hidden="true">3.</strong> Non Empty Vector</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../non-empty-vec/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../non-empty-vec/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../lifetimes/index.html" class="active"><strong aria-hidden="true">4.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lifetimes/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../lifetimes/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/index.html"><strong aria-hidden="true">5.</strong> Mini GTFS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/solution.html"><strong aria-hidden="true">5.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/simple_solution.html"><strong aria-hidden="true">5.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="../mini-gtfs/faster_solution.html"><strong aria-hidden="true">5.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/instructor.html"><strong aria-hidden="true">5.2.</strong> Instructor Notes</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="../schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><a href="../tips.html">Misc. Tips</a></li><li class="chapter-item expanded affix "><a href="../survey.html">Survey Results</a></li><li class="chapter-item expanded affix "><li class="part-title">Creating Python Extension Modules</li><li class="chapter-item expanded "><a href="../pyo3/index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="../inventory/index.html"><strong aria-hidden="true">2.</strong> Inventory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../inventory/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../inventory/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../non-empty-vec/index.html"><strong aria-hidden="true">3.</strong> Non Empty Vector</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../non-empty-vec/solution.html" class="active"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../non-empty-vec/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../lifetimes/index.html"><strong aria-hidden="true">4.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lifetimes/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="../lifetimes/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/index.html"><strong aria-hidden="true">5.</strong> Mini GTFS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/solution.html"><strong aria-hidden="true">5.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mini-gtfs/simple_solution.html"><strong aria-hidden="true">5.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="../mini-gtfs/faster_solution.html"><strong aria-hidden="true">5.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="../mini-gtfs/instructor.html"><strong aria-hidden="true">5.2.</strong> Instructor Notes</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,143 +173,125 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="lifetimes"><a class="header" href="#lifetimes">Lifetimes</a></h1>
-<blockquote>
-<p>This exercise is mostly taken from
-<a href="https://github.com/tfpk/lifetimekata/blob/main/exercises/05_lifetimes_on_types/exercise/src/lib.rs">exercise 5</a>
-of <a href="https://tfpk.github.io/lifetimekata/">LifetimeKata</a>, a really great resource for practicing lifetimes!</p>
-</blockquote>
-<p>In this exercise, we implement a function that, given two sentences, returns the words that are present in the first sentence but not in the second, and vice versa.
-The resulting struct <code>Difference</code> holds references to the words in the original sentences (rather copies of the words), so we need to ensure that the lifetimes are correct.</p>
-<p>You need to implement the missing parts of the function <code>find_difference</code> and make the tests pass.
-Note that this includes adding lifetime specifiers to both <code>find_difference</code> and <code>Difference</code>.</p>
-<p>You can test your implementation by running <code>cargo test</code>.</p>
-<blockquote>
-<details>
-  <summary>Read more</summary>
-<p>Having <code>Difference</code> hold references to the original sentences is a design choice.
-It could also hold the words themselves like so:</p>
+                        <h1 id="solution"><a class="header" href="#solution">Solution</a></h1>
+<p><a href="https://docs.rs/nonempty/latest/nonempty/">nonempty</a>,
+<a href="https://docs.rs/non-empty-vec/latest/non_empty_vec/">non_empty_vec</a>,
+and
+<a href="https://docs.rs/vec1/latest/vec1/">vec1</a>
+are crates that implement a non-empty vector type.
+Out implementation is similar to the one in <code>nonempty</code>.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>struct Difference {
-    first_only: Vec&lt;String&gt;,
-    second_only: Vec&lt;String&gt;,
-}
-<span class="boring">}</span></code></pre></pre>
-<p>This would simplify the implementation (no lifetime specifiers needed) but would be less efficient (as we would be copying the words).
-In real life, we often accept this trade-off and prefer the simpler solution, as it would be efficient enough.</p>
-</details>
-</blockquote>
-<pre><pre class="playground"><code class="language-rust compile_fail"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>use std::collections::HashSet;
-
-#[derive(Debug, Default)]
-pub struct Difference {
-    first_only: Vec&lt;&amp;str&gt;,
-    second_only: Vec&lt;&amp;str&gt;,
+</span>pub struct NonEmptyVec&lt;T&gt; {
+    head: T,
+    tail: Vec&lt;T&gt;,
 }
 
-fn words(sentence: &amp;str) -&gt; HashSet&lt;&amp;str&gt; {
-    sentence
-        .split(' ')
-        .filter(|word| !word.is_empty()) // this makes sure we don't have empty words
-        .collect()
+impl&lt;T&gt; NonEmptyVec&lt;T&gt; {
+    pub fn new(item: T) -&gt; Self {
+        NonEmptyVec {
+            head: item,
+            tail: Vec::new(),
+        }
+    }
+    pub fn push(&amp;mut self, item: T) {
+        self.tail.push(item);
+    }
+    pub fn get(&amp;self, index: usize) -&gt; Option&lt;&amp;T&gt; {
+        if index == 0 {
+            Some(&amp;self.head)
+        } else {
+            self.tail.get(index - 1)
+        }
+    }
+    pub fn first(&amp;self) -&gt; &amp;T {
+        &amp;self.head
+    }
+    pub fn first_mut(&amp;mut self) -&gt; &amp;mut T {
+        &amp;mut self.head
+    }
+    pub fn last(&amp;self) -&gt; &amp;T {
+        self.tail.last().unwrap_or(&amp;self.head)
+    }
+    pub fn last_mut(&amp;mut self) -&gt; &amp;mut T {
+        self.tail.last_mut().unwrap_or(&amp;mut self.head)
+    }
+    pub fn pop(mut self) -&gt; (T, Vec&lt;T&gt;) {
+        match self.tail.pop() {
+            Some(item) =&gt; (item, self.into()),
+            None =&gt; (self.head, Vec::new()),
+        }
+    }
 }
 
-pub fn find_difference(sentence1: &amp;str, sentence2: &amp;str) -&gt; Difference {
-    let sentence_1_words = words(sentence1);
-    let sentence_2_words = words(sentence2);
-
-    let diff = Difference::default();
-
-    todo!("implement the rest!");
-    // hint: iterate on the words of each sentence and use the `contains` method of `HashSet`
-
-    // sorting simplifies the equality assertions below
-    diff.first_only.sort();
-    diff.second_only.sort();
-
-    diff
+impl&lt;T&gt; From&lt;NonEmptyVec&lt;T&gt;&gt; for Vec&lt;T&gt; {
+    fn from(x: NonEmptyVec&lt;T&gt;) -&gt; Vec&lt;T&gt; {
+        let mut vec = vec![x.head];
+        vec.extend(x.tail);
+        vec
+    }
 }
-
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn test_completely_disjoint_sentences() {
-        let sentence1 = "apple banana cherry";
-        let sentence2 = "dog elephant fox";
-        let result = find_difference(sentence1, sentence2);
-
-        assert_eq!(result.first_only, vec!["apple", "banana", "cherry"]);
-        assert_eq!(result.second_only, vec!["dog", "elephant", "fox"]);
+    fn test_new() {
+        let x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
+        assert_eq!(x.first(), &amp;5);
+        assert_eq!(x.last(), &amp;5);
     }
 
     #[test]
-    fn test_identical_sentences() {
-        let sentence1 = "apple banana cherry";
-        let sentence2 = "apple banana cherry";
-        let result = find_difference(sentence1, sentence2);
-
-        assert!(result.first_only.is_empty());
-        assert!(result.second_only.is_empty());
+    fn test_push() {
+        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
+        x.push(10);
+        assert_eq!(x.first(), &amp;5);
+        assert_eq!(x.last(), &amp;10);
     }
 
     #[test]
-    fn test_some_common_words() {
-        let sentence1 = "apple banana cherry";
-        let sentence2 = "banana cherry dog";
-        let result = find_difference(sentence1, sentence2);
-
-        assert_eq!(result.first_only, vec!["apple"]);
-        assert_eq!(result.second_only, vec!["dog"]);
+    fn test_get() {
+        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
+        x.push(10);
+        x.push(15);
+        assert_eq!(x.get(0), Some(&amp;5));
+        assert_eq!(x.get(1), Some(&amp;10));
+        assert_eq!(x.get(2), Some(&amp;15));
+        assert_eq!(x.get(3), None);
     }
 
     #[test]
-    fn test_empty_sentences() {
-        let sentence1 = "";
-        let sentence2 = "";
-        let result = find_difference(sentence1, sentence2);
-
-        assert!(result.first_only.is_empty());
-        assert!(result.second_only.is_empty());
+    fn test_first_mut() {
+        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
+        *x.first_mut() = 10;
+        assert_eq!(x.first(), &amp;10);
     }
 
     #[test]
-    fn test_one_empty_sentence() {
-        let sentence1 = "apple banana cherry";
-        let sentence2 = "";
-        let result = find_difference(sentence1, sentence2);
-
-        assert_eq!(result.first_only, vec!["apple", "banana", "cherry"]);
-        assert!(result.second_only.is_empty());
+    fn test_last_mut() {
+        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
+        x.push(10);
+        *x.last_mut() = 15;
+        assert_eq!(x.last(), &amp;15);
     }
 
     #[test]
-    fn test_drop_first_sentence_before_second() {
-        todo!("Uncomment the code bellow once the rest of tests pass");
-        // let sentence1 = String::from("A long sentence that takes up a lot of memory. We want to drop it as soon as possible.");
-        // let sentence2 =
-        //     String::from("A short sentence, we are ok with keeping around for a while.");
-        // let Difference {
-        //     first_only,
-        //     second_only,
-        // } = find_difference(&amp;sentence1, &amp;sentence2);
+    fn test_pop() {
+        let mut x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
+        x.push(10);
+        x.push(15);
+        let (item, y) = x.pop();
+        assert_eq!(item, 15);
+        assert_eq!(y, vec![5, 10]);
+    }
 
-        // #[rustfmt::skip]
-        // assert_eq!(
-        //     first_only,
-        //     vec! ["We", "as", "drop", "it", "long", "lot", "memory.", "of", "possible.", "sentence", "soon", "takes", "that", "to", "up", "want"],
-        // );
-        // drop(sentence1);
-
-        // #[rustfmt::skip]
-        // assert_eq!(
-        //     second_only,
-        //     vec! ["are", "around", "for", "keeping", "ok", "sentence,", "short", "we", "while.", "with"],
-        // );
+    #[test]
+    fn test_pop_single_item() {
+        let x: NonEmptyVec&lt;i32&gt; = NonEmptyVec::new(5);
+        let (item, y) = x.pop();
+        assert_eq!(item, 5);
+        assert!(y.is_empty());
     }
 }
 <span class="boring">}</span></code></pre></pre>
@@ -318,11 +300,11 @@ mod tests {
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../non-empty-vec/instructor.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../non-empty-vec/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../lifetimes/solution.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../non-empty-vec/instructor.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -332,11 +314,11 @@ mod tests {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../non-empty-vec/instructor.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../non-empty-vec/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../lifetimes/solution.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../non-empty-vec/instructor.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
