@@ -1,21 +1,25 @@
 # Summary
 
 [Welcome to Rust with Via](README.md)
-
 [Schedule](schedule.md)
+[Misc. Tips](tips.md)
+[Survey Results](survey.md)
+
+# Creating Python Extension Modules
+- [Welcome](pyo3/README.md)
 
 # Exercises
-- [Standard Library Traits](stdlib-traits/README.md)
-    - [Solution](stdlib-traits/solution.md)
-    - [Instructor Notes](stdlib-traits/instructor.md)
-- [Borrowing](borrowing/README.md)
-    - [Solution](borrowing/solution.md)
-    - [Instructor Notes](borrowing/instructor.md)
+- [Inventory](inventory/README.md)
+    - [Solution](inventory/solution.md)
+    - [Instructor Notes](inventory/instructor.md)
+- [Non Empty Vector](non-empty-vec/README.md)
+    - [Solution](non-empty-vec/solution.md)
+    - [Instructor Notes](non-empty-vec/instructor.md)
 - [Lifetimes](lifetimes/README.md)
     - [Solution](lifetimes/solution.md)
     - [Instructor Notes](lifetimes/instructor.md)
-- [Python Extension Modules](pyo3/README.md)
-    - [Solution](pyo3/solution.md)
-        - [Simple Solution](pyo3/simple_solution.md)
-        - [Faster Solution](pyo3/faster_solution.md)
-    - [Instructor Notes](pyo3/instructor.md)
+- [Mini GTFS](mini-gtfs/README.md)
+    - [Solution](mini-gtfs/solution.md)
+        - [Simple Solution](mini-gtfs/simple_solution.md)
+        - [Faster Solution](mini-gtfs/faster_solution.md)
+    - [Instructor Notes](mini-gtfs/instructor.md)

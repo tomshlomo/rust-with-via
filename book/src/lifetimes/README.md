@@ -1,7 +1,7 @@
 # Lifetimes
 > This exercise is mostly taken from 
 [exercise 5](https://github.com/tfpk/lifetimekata/blob/main/exercises/05_lifetimes_on_types/exercise/src/lib.rs) 
-of [LifetimeKata](https://tfpk.github.io/lifetimekata/).
+of [LifetimeKata](https://tfpk.github.io/lifetimekata/), a really great resource for practicing lifetimes!
 
 In this exercise, we implement a function that, given two sentences, returns the words that are present in the first sentence but not in the second, and vice versa.
 The resulting struct `Difference` holds references to the words in the original sentences (rather copies of the words), so we need to ensure that the lifetimes are correct.

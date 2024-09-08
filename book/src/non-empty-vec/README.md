@@ -1,9 +1,9 @@
-# Borrowing
+# Non Empty Vector
 In this exercise, you will implement a non-empty vector type. This type is a vector that is compile-time guaranteed to have at least one element. It can be useful when you want to ensure that a vector is never empty and avoid the overhead of checking for emptiness.
 
 For example, a function can return a `NonEmptyVec<T>` instead of a `Vec<T>` to guarantee to its caller that the vector has at least one element. Or, a function can receive a `NonEmptyVec<T>` as an argument to force the caller to guarantee that the vector has at least one element.
 
-## To do
+## To Do
 1. Implement the following methods for `NonEmptyVec`:
    * `new`: creates a new `NonEmptyVec` with a single element.
    * `push`: pushes an element to the end of the `NonEmptyVec`.

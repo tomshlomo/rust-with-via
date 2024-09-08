@@ -1,4 +1,4 @@
-# Lifetimes
+# Inventory
 In this exercise, we implement standard traits on `Inventory`, a type that represents an inventory list for a store.
 
 You will need to implement two traits:
