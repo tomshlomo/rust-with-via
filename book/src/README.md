@@ -22,7 +22,6 @@ Most notably, we added a dedicated section and an exercise on using pyo3 to crea
 
 To enhance the learning experience, we encouraged students to use VSCode as their development environment. We spent time setting up VSCode with essential tools like rust analyzer, clippy, and rustfmt to streamline their workflow.
 
-At the conclusion of the workshop, we conducted a survey to gather feedback from the participants. The results were very positive, with 90% of respondents expressing a desire to use Rust in their projects and 80% feeling confident in their ability to do so with appropriate guidance.
-You can find the full results [here](survey.md).
+At the conclusion of the workshop, we conducted a survey to gather feedback from the participants. The results were very positive, with 90% of respondents expressing a desire to use Rust in their projects and 75% feeling confident in their ability to do so with appropriate guidance.
 
 We hope that you will find the materials on this site useful and that they will inspire you to explore Rust further. Happy coding!
