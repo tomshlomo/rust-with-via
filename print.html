@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><a href="tips.html">Miscellaneous Tips</a></li><li class="chapter-item expanded affix "><a href="survey.html">Survey Results</a></li><li class="chapter-item expanded affix "><li class="part-title">Creating Python Extension Modules</li><li class="chapter-item expanded "><a href="pyo3/index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="inventory/index.html"><strong aria-hidden="true">2.</strong> Inventory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="inventory/solution.html"><strong aria-hidden="true">2.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="inventory/instructor.html"><strong aria-hidden="true">2.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="non-empty-vec/index.html"><strong aria-hidden="true">3.</strong> Non Empty Vector</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="non-empty-vec/solution.html"><strong aria-hidden="true">3.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="non-empty-vec/instructor.html"><strong aria-hidden="true">3.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="lifetimes/index.html"><strong aria-hidden="true">4.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lifetimes/solution.html"><strong aria-hidden="true">4.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="lifetimes/instructor.html"><strong aria-hidden="true">4.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="mini-gtfs/index.html"><strong aria-hidden="true">5.</strong> Mini GTFS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mini-gtfs/solution.html"><strong aria-hidden="true">5.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mini-gtfs/simple_solution.html"><strong aria-hidden="true">5.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="mini-gtfs/faster_solution.html"><strong aria-hidden="true">5.1.2.</strong> Faster Solution</a></li></ol></li><li class="chapter-item expanded "><a href="mini-gtfs/instructor.html"><strong aria-hidden="true">5.2.</strong> Instructor Notes</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="schedule.html">Schedule</a></li><li class="chapter-item expanded affix "><a href="tips.html">Miscellaneous Tips</a></li><li class="chapter-item expanded affix "><li class="part-title">Creating Python Extension Modules</li><li class="chapter-item expanded "><a href="pyo3/index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded "><a href="pyo3/maturin.html"><strong aria-hidden="true">2.</strong> Setup</a></li><li class="chapter-item expanded "><a href="pyo3/functions.html"><strong aria-hidden="true">3.</strong> Functions</a></li><li class="chapter-item expanded "><a href="pyo3/classes.html"><strong aria-hidden="true">4.</strong> Classes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="pyo3/methods.html"><strong aria-hidden="true">4.1.</strong> Methods</a></li></ol></li><li class="chapter-item expanded "><a href="pyo3/errors.html"><strong aria-hidden="true">5.</strong> Error Handling</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="inventory/index.html"><strong aria-hidden="true">6.</strong> Inventory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="inventory/solution.html"><strong aria-hidden="true">6.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="inventory/instructor.html"><strong aria-hidden="true">6.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="non-empty-vec/index.html"><strong aria-hidden="true">7.</strong> Non Empty Vector</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="non-empty-vec/solution.html"><strong aria-hidden="true">7.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="non-empty-vec/instructor.html"><strong aria-hidden="true">7.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="lifetimes/index.html"><strong aria-hidden="true">8.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lifetimes/solution.html"><strong aria-hidden="true">8.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="lifetimes/instructor.html"><strong aria-hidden="true">8.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="mini-gtfs/index.html"><strong aria-hidden="true">9.</strong> Mini GTFS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mini-gtfs/solution.html"><strong aria-hidden="true">9.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mini-gtfs/simple_solution.html"><strong aria-hidden="true">9.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="mini-gtfs/faster_solution.html"><strong aria-hidden="true">9.1.2.</strong> Faster Solution</a></li><li class="chapter-item expanded "><a href="mini-gtfs/instructor.html"><strong aria-hidden="true">9.1.3.</strong> Instructor Notes</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -194,8 +194,7 @@ Demonstrate how Rust's focus on safety can help identify and prevent bugs earlie
 <p>The course was attended by approximately 15 developers from our algorithms group. Given their extensive experience with Python, and the fact the the original course seem more oriented towards C++ developers, we made several adjustments to the original curriculum.
 Most notably, we added a dedicated section and an exercise on using pyo3 to create native Python extensions. Additionally, we replaced some of the exercises with problems that were more relevant to our team's work.</p>
 <p>To enhance the learning experience, we encouraged students to use VSCode as their development environment. We spent time setting up VSCode with essential tools like rust analyzer, clippy, and rustfmt to streamline their workflow.</p>
-<p>At the conclusion of the workshop, we conducted a survey to gather feedback from the participants. The results were very positive, with 90% of respondents expressing a desire to use Rust in their projects and 80% feeling confident in their ability to do so with appropriate guidance.
-You can find the full results <a href="survey.html">here</a>.</p>
+<p>At the conclusion of the workshop, we conducted a survey to gather feedback from the participants. The results were very positive, with 90% of respondents expressing a desire to use Rust in their projects and 75% feeling confident in their ability to do so with appropriate guidance.</p>
 <p>We hope that you will find the materials on this site useful and that they will inspire you to explore Rust further. Happy coding!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="schedule"><a class="header" href="#schedule">Schedule</a></h1>
 <p>The course was divided into 4 days and 2 weeks, with two consecutive days per week.
@@ -301,8 +300,240 @@ This will allow them to hit the ground running on day one.</li>
 For example, we found that discussing the behavior of rustc with respect to integer overflow, especially on the first day, wasn't necessary.</li>
 <li>When discussing references, use the terms "exclusive reference" and "shared reference" instead of "mutable reference" and "immutable reference."</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="survey-results"><a class="header" href="#survey-results">Survey Results</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="welcome"><a class="header" href="#welcome">Welcome</a></h1>
+<p>In this section, we will learn how to write Python extension modules in Rust using the <a href="https://pyo3.rs">PyO3</a> library.</p>
+<p>We will cover how to define Python functions, classes, modules, and exceptions in Rust.</p>
+<p>PyO3 is a rich library that provides many more features (e.g., interaction with the GIL, async) that we will not cover. However, you are welcome to explore its excellent <a href="https://pyo3.rs">documentation</a> for more information.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="setup"><a class="header" href="#setup">Setup</a></h1>
+<p>The easiest way to create a Python extension in Rust by using <a href="https://www.maturin.rs/">maturin</a>, a tool that simplifies the process of configuring, building and publishing Rust-based Python packages.</p>
+<h2 id="starting-a-new-project"><a class="header" href="#starting-a-new-project">Starting a new project</a></h2>
+<p>In a fresh virtualenv, install maturin and create a new project:</p>
+<pre><code class="language-shell">pip install maturin
+maturin new hello-python
+cd hello-python
+</code></pre>
+<p>A skeleton project will be created. It contains a small example of a Python module implemented in Rust, with a function that returns the sum of two numbers as a string:</p>
+<pre><code class="language-rust ignore">use pyo3::prelude::*;
+/// Formats the sum of two numbers as string.
+#[pyfunction]
+fn sum_as_string(a: usize, b: usize) -&gt; PyResult&lt;String&gt; {
+    Ok((a + b).to_string())
+}
+
+/// A Python module implemented in Rust.
+#[pymodule]
+fn hello_python(_py: Python, m: &amp;PyModule) -&gt; PyResult&lt;()&gt; {
+    m.add_function(wrap_pyfunction!(sum_as_string, m)?)?;
+    Ok(())
+}</code></pre>
+<h2 id="building-the-project"><a class="header" href="#building-the-project">Building the project</a></h2>
+<p>To build the project, run:</p>
+<pre><code class="language-shell">maturin develop
+</code></pre>
+<p>This will compile the crate, build the python package and install it in the active virtualenv.</p>
+<p>Now you can use it from python:</p>
+<pre><code class="language-python">import hello_python
+hello_python.sum_as_string(5, 20)
+</code></pre>
+<p><code>maturing develop --release</code> will build the project in release mode.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
+<p>The PyO3 prelude provides the <code>pyfunction</code> attribute macro to define a Python function from a Rust function.
+To make it available to Python, we need also to define a module that exports the function.</p>
+<pre><code class="language-rust ignore">use pyo3::prelude::*;
+
+#[pyfunction]
+fn largest_positive(x: Vec&lt;i64&gt;) -&gt; Option&lt;i64&gt; {
+    x.into_iter().filter(|&amp;x| x &gt; 0).max()
+}
+
+#[pymodule]
+fn my_module(m: &amp;Bound&lt;'_, PyModule&gt;) -&gt; PyResult&lt;()&gt; {
+    m.add_function(wrap_pyfunction!(largest_positive, m)?)?;
+    Ok(())
+}</code></pre>
+<p>PyO3 automatically converts Rust types to Python types and vice versa:</p>
+<pre><code class="language-python">from my_module import largest_positive
+
+largest_positive([1, -2, 3, -4, 5])  # 5
+largest_positive([-1, -2, -3])  # None
+</code></pre>
+<p>Type conversions are defined through the <code>FromPyObject</code> and <code>IntoPy&lt;PyObject&gt;</code> traits, which are implemented for many standard Rust types.
+Checkout <a href="https://pyo3.rs/v0.22.3/conversions/tables">the table in PyO3 documentation</a> for more information.</p>
+<p>There is also a derive macro for <code>FromPyObject</code>, which makes it easy to use your own types (structs and enums) as function arguments.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="python-classes"><a class="header" href="#python-classes">Python classes</a></h1>
+<p>The attribute <code>#[pyclass]</code> is used to define a Python class from a Rust struct or enum:</p>
+<pre><code class="language-rust ignore">use pyo3::prelude::*;
+
+#[pyclass]
+#[derive(Clone)]
+struct Location {
+    lat: f64,
+    lon: f64,
+}
+
+#[pyclass]
+struct RideRequest {
+    rider_name: String,
+    origin: Location,
+    destination: Location,
+}
+
+#[pymodule]
+fn my_module(m: &amp;Bound&lt;'_, PyModule&gt;) -&gt; PyResult&lt;()&gt; {
+    m.add_class::&lt;RideRequest&gt;()?;
+    m.add_class::&lt;Location&gt;()?;
+    Ok(())
+}</code></pre>
+<p>By default, the class is not instantiable from Python. To define a constructor, add a method with the <code>#[new]</code> attribute:</p>
+<pre><code class="language-rust ignore">#[pymethods]
+impl Location {
+    #[new]
+    fn new(lat: f64, lon: f64) -&gt; Self {
+        Location { lat, lon }
+    }
+}
+
+#[pymethods]
+impl RideRequest {
+    #[new]
+    fn new(rider_name: String, origin: Location, destination: Location) -&gt; Self {
+        RideRequest { rider_name, origin, destination }
+    }
+}</code></pre>
+<pre><code class="language-python">from my_module import Location, RideRequest
+
+origin = Location(32.070575, 34.770354)
+destination = Location(32.077381, 34.793280)
+request = RideRequest("Alice", origin, destination)
+</code></pre>
+<p>pycalsses implement <code>FromPyObject</code> and <code>IntoPy&lt;PyObject&gt;</code> so that they can be used as arguments and return values.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="methods"><a class="header" href="#methods">Methods</a></h1>
+<p>To define methods on a Python class, add the <code>#[pymethods]</code> attribute to the <code>impl</code> block of a <code>pyclass</code>.</p>
+<pre><code class="language-rust ignore">use pyo3::prelude::*;
+
+#[pyclass]
+struct Point {
+    x: f64,
+    y: f64,
+}
+
+#[pymethods]
+impl Point {
+    #[new]
+    fn new(x: f64, y: f64) -&gt; Self {
+        Point{x, y}
+    }
+
+    fn magnitude(&amp;self) -&gt; f64 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+
+    fn scale(&amp;mut self, factor: f64) {
+        self.x *= factor;
+        self.y *= factor;
+    }
+
+    #[getter]
+    fn x(&amp;self) -&gt; f64 {
+        self.x
+    }
+
+    #[setter]
+    fn set_x(&amp;mut self, x: f64) {
+        self.x = x;
+    }
+
+    #[staticmethod]
+    fn origin() -&gt; Self {
+        Point{x: 0.0, y: 0.0}
+    }
+
+    fn __repr__(&amp;self) -&gt; String {
+        format!("Point({}, {})", self.x, self.y)
+    }
+
+#[pymodule]
+fn my_module(m: &amp;Bound&lt;'_, PyModule&gt;) -&gt; PyResult&lt;()&gt; {
+    m.add_class::&lt;Point&gt;()?;
+    Ok(())
+}
+}</code></pre>
+<pre><code class="language-python">from my_module import Point
+
+p = Point(3.0, 4.0)
+print(p.magnitude())  # 5.0
+p.scale(2.0)
+p.x = 10.0
+print(p.x)  # 10.0
+print(p)  # Point(10.0, 8.0)
+print(Point.origin())  # Point(0.0, 0.0)
+</code></pre>
+<p>PyO3 provides many more convenience macros, including automatic generation of getters and setters, <code>__eq__</code> and <code>__hash__</code> methods, and more.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="error-handling"><a class="header" href="#error-handling">Error Handling</a></h1>
+<p>Python and Rust have distinct mechanisms for handling errors.</p>
+<p>In Python, exceptions are raised when an error occurs. These exceptions propagate up the call stack until they are caught and handled.</p>
+<p>In Rust, errors are returned as values. The <code>Result&lt;T, E&gt;</code> enum represents the result of an operation that may fail. The <code>T</code> type is the value returned on success, and the <code>E</code> type is the error returned on failure.</p>
+<p>PyO3 bridges the gap between Python and Rust error handling by using the <code>PyResult&lt;T&gt;</code> type, which is an alias for <code>Result&lt;T, PyErr&gt;</code>. Here, <code>PyErr</code> represents a Python exception. If a <code>PyResult</code> returns from Rust to Python through PyO3 and it is an <code>Err</code> variant, the associated exception will be raised.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use pyo3::exceptions::PyValueError;
+use pyo3::prelude::*;
+
+#[pyfunction]
+fn divide(x: i32, y: i32) -&gt; PyResult&lt;i32&gt; {
+    if y == 0 {
+        return Err(PyValueError::new_err("division by zero"));
+    }
+    Ok(x / y)
+}
+
+#[pymodule]
+fn my_module(m: &amp;PyModule) -&gt; PyResult&lt;()&gt; {
+    m.add_function(wrap_pyfunction!(divide, m)?)?;
+    Ok(())
+}
+<span class="boring">}</span></code></pre></pre>
+<pre><code class="language-python">from my_module import divide
+
+try:
+    divide(1, 0)
+except ValueError as e:
+    print(e)  # division by zero
+</code></pre>
+<p>Many error types in the standard library implement <code>Into&lt;PyErr&gt;</code>, allowing the use of the <code>?</code> operator to easily propagate errors.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use pyo3::prelude::*;
+
+#[pyfunction]
+fn parse_int(s: &amp;str) -&gt; PyResult&lt;i64&gt; {
+    Ok(s.parse()?)
+}
+
+#[pymodule]
+fn my_module(m: &amp;PyModule) -&gt; PyResult&lt;()&gt; {
+    m.add_function(wrap_pyfunction!(parse_int, m)?)?;
+    Ok(())
+}
+<span class="boring">}</span></code></pre></pre>
+<pre><code class="language-python">from my_module import parse_int
+
+try:
+    parse_int("abc")
+except ValueError as e:
+    print(e)  # invalid digit found in string
+</code></pre>
+<p>Conveniently, <code>anyhow::Error</code> implements <code>Into&lt;PyErr&gt;</code>, so you can use <code>anyhow</code> for error handling in Rust and propagate errors to Python with the <code>?</code> operator.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use anyhow::Context;
+use pyo3::prelude::*;
+
+#[pyfunction]
+fn divide(x: i32, y: i32) -&gt; PyResult&lt;i32&gt; {
+    Ok(x.checked_div(y).context("division by zero")?)
+}
+<span class="boring">}</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="inventory"><a class="header" href="#inventory">Inventory</a></h1>
 <p>In this exercise, we implement standard traits on <code>Inventory</code>, a type that represents an inventory list for a store.</p>
 <p>You will need to implement two traits:</p>
