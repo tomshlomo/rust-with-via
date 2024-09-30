@@ -1,4 +1,4 @@
-# Welcome to Rust with Via
+# Rust With Via - Teaching Rust to Python Developers
 
 This website contains complementary material for 
 [Comprehensive Rust](https://google.github.io/comprehensive-rust/), 
