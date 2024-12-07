@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -30,15 +30,17 @@
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,45 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome to Rust with Via</a></li><li class="chapter-item expanded affix "><a href="schedule.html" class="active">Schedule</a></li><li class="chapter-item expanded affix "><a href="tips.html">Miscellaneous Tips</a></li><li class="chapter-item expanded affix "><li class="part-title">Creating Python Extension Modules</li><li class="chapter-item expanded "><a href="pyo3/index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded "><a href="pyo3/maturin.html"><strong aria-hidden="true">2.</strong> Setup</a></li><li class="chapter-item expanded "><a href="pyo3/functions.html"><strong aria-hidden="true">3.</strong> Functions</a></li><li class="chapter-item expanded "><a href="pyo3/classes.html"><strong aria-hidden="true">4.</strong> Classes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="pyo3/methods.html"><strong aria-hidden="true">4.1.</strong> Methods</a></li></ol></li><li class="chapter-item expanded "><a href="pyo3/errors.html"><strong aria-hidden="true">5.</strong> Error Handling</a></li><li class="chapter-item expanded affix "><li class="part-title">Exercises</li><li class="chapter-item expanded "><a href="inventory/index.html"><strong aria-hidden="true">6.</strong> Inventory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="inventory/solution.html"><strong aria-hidden="true">6.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="inventory/instructor.html"><strong aria-hidden="true">6.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="non-empty-vec/index.html"><strong aria-hidden="true">7.</strong> Non Empty Vector</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="non-empty-vec/solution.html"><strong aria-hidden="true">7.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="non-empty-vec/instructor.html"><strong aria-hidden="true">7.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="lifetimes/index.html"><strong aria-hidden="true">8.</strong> Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lifetimes/solution.html"><strong aria-hidden="true">8.1.</strong> Solution</a></li><li class="chapter-item expanded "><a href="lifetimes/instructor.html"><strong aria-hidden="true">8.2.</strong> Instructor Notes</a></li></ol></li><li class="chapter-item expanded "><a href="mini-gtfs/index.html"><strong aria-hidden="true">9.</strong> Mini GTFS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mini-gtfs/solution.html"><strong aria-hidden="true">9.1.</strong> Solution</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mini-gtfs/simple_solution.html"><strong aria-hidden="true">9.1.1.</strong> Simple Solution</a></li><li class="chapter-item expanded "><a href="mini-gtfs/faster_solution.html"><strong aria-hidden="true">9.1.2.</strong> Faster Solution</a></li><li class="chapter-item expanded "><a href="mini-gtfs/instructor.html"><strong aria-hidden="true">9.1.3.</strong> Instructor Notes</a></li></ol></li></ol></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -183,26 +162,33 @@ Each day was about 6 hours long, with a 1-hour break for lunch.</p>
 <p>Leveraging the time saved from Day 1, we began Day 2 with a dedicated discussion about "why Rust." This session delved into Rust's unique features and explored how they benefit development practices. While introducing this topic later in the course might seem unconventional, we found it fostered a more technical and concrete conversation.</p>
 <p>Some of the key topics covered included:</p>
 <ul>
-<li><strong>Memory Management:</strong> Rust's unique memory model eliminates memory management bugs without relying on a garbage collector.</li>
-<li><strong>Type System:</strong> Rust's rich type system allows for expressive and safe code.
+<li>
+<p><strong>Memory Management:</strong> Rust's unique memory model eliminates memory management bugs without relying on a garbage collector.</p>
+</li>
+<li>
+<p><strong>Type System:</strong> Rust's rich type system allows for expressive and safe code.</p>
 <ul>
 <li>Exclusive and shared references</li>
 <li>Mutability in declarations/signatures.</li>
 <li>Rust's enums that can have data attached to them.</li>
 <li>Consuming functions.</li>
 <li>Rust's unique error handling mechanism</li>
-<li>Composition through traits, as opposed to object-oriented programming
-We emphasized how these features help write more reliable and maintainable code.</li>
+<li>Composition through traits, as opposed to object-oriented programming</li>
 </ul>
+<p>We emphasized how these features help write more reliable and maintainable code.</p>
 </li>
-<li><strong>Concurrency:</strong> Rust's "Fearless Concurrency" model enables safe and efficient parallel programming.</li>
-<li><strong>Zero-Cost Abstractions:</strong>
+<li>
+<p><strong>Concurrency:</strong> Rust's "Fearless Concurrency" model enables safe and efficient parallel programming.</p>
+</li>
+<li>
+<p><strong>Zero-Cost Abstractions:</strong></p>
 <ul>
 <li>Monomorphization</li>
 <li>The newtype pattern</li>
 </ul>
 </li>
-<li><strong>Modern, Batteries Included Toolset</strong> that makes Rust development a breeze.
+<li>
+<p><strong>Modern, Batteries Included Toolset</strong> that makes Rust development a breeze.</p>
 <ul>
 <li>Cargo</li>
 <li>rustfmt</li>
@@ -211,29 +197,40 @@ We emphasized how these features help write more reliable and maintainable code.
 <li>rust-analyzer</li>
 </ul>
 </li>
-<li><strong>Python Integration:</strong> Rust makes it easy to create Python extensions. Several prominent Python projects leverage Rust, including:
+<li>
+<p><strong>Python Integration:</strong> Rust makes it easy to create Python extensions. Several prominent Python projects leverage Rust, including:</p>
 <ul>
 <li><a href="https://docs.pydantic.dev/latest/">Pydantic</a></li>
 <li><a href="https://pola.rs/">Polars</a></li>
 <li><a href="https://docs.astral.sh/ruff/">Ruff</a></li>
 <li><a href="https://github.com/huggingface/tokenizers">tokenizers</a></li>
 <li><a href="https://github.com/ijl/orjson">orjson</a></li>
-<li><a href="https://cryptography.io/en/latest/">cryptography</a>
-It's also easy to call Python code from Rust.</li>
+<li><a href="https://cryptography.io/en/latest/">cryptography</a></li>
 </ul>
+<p>It's also easy to call Python code from Rust.</p>
 </li>
-<li><strong>Industry Adoption:</strong> Rust is gaining significant traction within the industry, used by major companies and currently ranking among the top 20 most popular languages according to the <a href="https://www.tiobe.com/tiobe-index/">TIOBE index</a>.</li>
-<li><strong>Developer Satisfaction:</strong> Programming in Rust is fun! It is the most admired language for the 8'th year in a row according to the <a href="https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages">Stack Overflow Developer Survey</a>.
-We also acknowledged some of Rust's drawbacks, including:</li>
-<li>Steeper learning curve</li>
-<li>Slower compilation times</li>
-<li>Immature ecosystem in certain domains
-he remaining portion of Day 2 followed the original course schedule, except for replacing the last
+<li>
+<p><strong>Industry Adoption:</strong> Rust is gaining significant traction within the industry, used by major companies and currently ranking among the top 20 most popular languages according to the <a href="https://www.tiobe.com/tiobe-index/">TIOBE index</a>.</p>
+</li>
+<li>
+<p><strong>Developer Satisfaction:</strong> Programming in Rust is fun! It is the most admired language for the 8'th year in a row according to the <a href="https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages">Stack Overflow Developer Survey</a>.
+We also acknowledged some of Rust's drawbacks, including:</p>
+</li>
+<li>
+<p>Steeper learning curve</p>
+</li>
+<li>
+<p>Slower compilation times</p>
+</li>
+<li>
+<p>Immature ecosystem in certain domains</p>
+</li>
+</ul>
+<p>The remaining portion of Day 2 followed the original course schedule, except for replacing the last
 <a href="https://google.github.io/comprehensive-rust/std-traits/exercise.html">ROT13</a>
 exercise with our
 <a href="inventory">Inventory</a>
-exercise.</li>
-</ul>
+exercise.</p>
 <h2 id="day-3"><a class="header" href="#day-3">Day 3</a></h2>
 <p>This day covered the material from the original course's third day with the following exceptions:</p>
 <ul>
