@@ -24,6 +24,7 @@ Some of the key topics covered included:
     * Consuming functions.
     * Rust's unique error handling mechanism
     * Composition through traits, as opposed to object-oriented programming
+
     We emphasized how these features help write more reliable and maintainable code.
 * **Concurrency:** Rust's "Fearless Concurrency" model enables safe and efficient parallel programming.
 * **Zero-Cost Abstractions:**
@@ -42,6 +43,7 @@ Some of the key topics covered included:
     * [tokenizers](https://github.com/huggingface/tokenizers)
     * [orjson](https://github.com/ijl/orjson)
     * [cryptography](https://cryptography.io/en/latest/)
+
     It's also easy to call Python code from Rust.
 * **Industry Adoption:** Rust is gaining significant traction within the industry, used by major companies and currently ranking among the top 20 most popular languages according to the [TIOBE index](https://www.tiobe.com/tiobe-index/).
 * **Developer Satisfaction:** Programming in Rust is fun! It is the most admired language for the 8'th year in a row according to the [Stack Overflow Developer Survey](https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages).
@@ -49,7 +51,8 @@ We also acknowledged some of Rust's drawbacks, including:
 * Steeper learning curve
 * Slower compilation times
 * Immature ecosystem in certain domains
-he remaining portion of Day 2 followed the original course schedule, except for replacing the last 
+
+The remaining portion of Day 2 followed the original course schedule, except for replacing the last 
 [ROT13](https://google.github.io/comprehensive-rust/std-traits/exercise.html) 
 exercise with our 
 [Inventory](inventory) 
